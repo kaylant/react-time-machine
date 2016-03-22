@@ -47,25 +47,26 @@ function app() {
 			return yyyy
     	},
 
-    	_timeMarchesOn: function(){
-    		if (incrementing) {
-    			this.setState({
-    				incrementing: true
-    			})
-    		}
-    		var boundIncrementer = incrementYear.bind(this)
-    		this.intervalId = setInterval(boundIncrementer,100)
-    		else {
-          		clearInterval(this.intervalId)
-          		incrementing: false
-          	}
-    	},
+    	// _timeMarchesOn: function(){
+    	// 	if (incrementing) {
+    	// 		this.setState({
+    	// 			incrementing: true
+    	// 		})
+    	// 	}
+    	// 	var boundIncrementer = incrementYear.bind(this)
+    	// 	this.intervalId = setInterval(boundIncrementer,100)
+    	// 	else {
+     //      		clearInterval(this.intervalId)
+     //      		incrementing: false
+     //      	}
+    	// },
 
     	getInitialState: function(){
     		return {
-    			incrementing: false
+    			incrementing: false,
+    			decrementing: false,
     		}
-    	}
+    	},
 
     	render: function() {
     		return (
