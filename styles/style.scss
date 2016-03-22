@@ -127,3 +127,22 @@ body {
 /**
  * App code
  */
+.container {
+    text-align: center;
+    width: 75%;
+    margin: 150px auto;
+
+    .timeButton {
+        width: 150px;
+        height: 30px;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        font-family: 'Trebuchet MS';
+        font-size: 8px;
+    }
+
+    .timeButton:focus {
+        outline: none;
+    }
+}

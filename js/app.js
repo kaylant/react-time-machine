@@ -38,8 +38,46 @@ import React, {Component} from 'react'
 
 function app() {
     // start app
-    // new Router()
-    DOM.render(<p>test 2</p>, document.querySelector('.container'))
+
+        var AppView = React.createClass({
+
+        _getCurrentDate: function(){
+			var today = new Date()
+			var yyyy = today.getFullYear()
+			return yyyy
+    	},
+
+    	_timeMarchesOn: function(){
+    		if (incrementing) {
+    			this.setState({
+    				incrementing: true
+    			})
+    		}
+    		var boundIncrementer = incrementYear.bind(this)
+    		this.intervalId = setInterval(boundIncrementer,100)
+    		else {
+          		clearInterval(this.intervalId)
+          		incrementing: false
+          	}
+    	},
+
+    	getInitialState: function(){
+    		return {
+    			incrementing: false
+    		}
+    	}
+
+    	render: function() {
+    		return (
+    			<div className="pageContainer">			
+	    			<h1 className="timeStamp">{this._getCurrentDate()}</h1>
+	    			<button className="timeButton" onClick={this._timeMarchesOn}>forward</button> 
+	    		</div>
+    			)
+    	}
+    })
+
+    DOM.render(<AppView/>, document.querySelector('.container'))
 }
 
 app()
